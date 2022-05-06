@@ -44,29 +44,29 @@ questions = [
 
 variants = {"A":0, "B":1, "C":2, "D":3, "E":4}
 
-sual_count = 1
-duz_cavab_count = 0
+question_count = 1
+correct_answer = 0
 
 
-for sual in questions:
-    print(str(sual_count)+'.',sual['question'])
+for question in questions:
+    print(str(question_count)+'.',question['question'])
     
-    print('a)',sual['options'][0])
-    print('b)',sual['options'][1])
-    print('c)',sual['options'][2])
-    print('d)',sual['options'][3])
-    cavab = input('Cavab\n').upper()
+    print('a)',question['options'][0])
+    print('b)',question['options'][1])
+    print('c)',question['options'][2])
+    print('d)',question['options'][3])
+    answer = input('Answer\n').upper()
    
-    if cavab in variants:
-        if cavab in variants.keys():
-            if variants[cavab] == sual['answer']:
-                print('Duzdur')
-                duz_cavab_count +=1
+    if answer in variants:
+        if answer in variants.keys():
+            if variants[answer] == question['answer']:
+                print('Great!')
+                correct_answer +=1
             else:
-                print("Cavabiniz Sehvdir.Duzgun Cavab",list(variants.items())[sual['answer']][0])
+                print("Incorrect Answer.Correct Answer",list(variants.items())[question['answer']][0])
     else:
-        print("Secile bilecek variantlar A,B,C,D")
+        print("You can choose only A,B,C,D")
         
-    sual_count +=1
+    question_count +=1
     print('-'*60)
-print(f'Duz cavablarin sayi {duz_cavab_count} ')
+print(f'Your correct answer is {correct_answer} ')
